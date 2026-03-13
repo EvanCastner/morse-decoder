@@ -7,8 +7,17 @@ import decodeMorse from './utils/decpdeMorse';
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [outputValue, setOutputValue] = useState("");
+  const [warning, setWarning] = useState("");
 
   function handleDecode() {
+
+    if (/[^.\-\s]/.test(inputValue)) {
+      setWarning("Invalid characters detected");
+    }
+    else {
+      setWarning("");
+    }
+
     const result = decodeMorse(inputValue);
     setOutputValue(result);
   }
@@ -16,6 +25,7 @@ function App() {
   function handleClear() {
     setInputValue("");
     setOutputValue("");
+    setWarning("");
   }
 
     return (
@@ -30,6 +40,8 @@ function App() {
         />
 
         <OutputDisplay value={outputValue}/>
+
+        {warning && <p>{warning}</p>}
 
       </div>
     );    
