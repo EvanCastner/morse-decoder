@@ -1,16 +1,55 @@
-# React + Vite
+# Morse Code Decoder 
+A simple Rreact Application that converts Morse code into text
+The app includes an input text box, a read only output and a reference table for Morse code characters
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
+# Local Setup
 
-Currently, two official plugins are available:
+## 1. Local Setup Steps
+In your terminal run:
+~~~bash 
+	git clone <repo-url>
+	cd <project-folder>
+	Node -v
+	npm install
+~~~
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 2. How to Run Locally 
+In your terminal:
+~~~bash 
+	cd <project-folder>
+	npm run dev
+~~~
+Copy http://localhost:5173 into your web browser
 
-## React Compiler
+## 3. How to Deploy on Firebase Hosting
+In your terminal:
+~~~bash
+	npm install -g firebase-tools
+	firebase login
+~~~
+This will send you to google to login with an email
+~~~bash
+	cd <project-folder>
+	firebase init
+~~~
+Select HOSTING
+Choose the project
+Set the public directory
+   Dist (if using vite)
+   Or build (if using Create React App)
+Configure as a single page: YES
+DO NOT OVERWRITE index.html
+~~~bash
+	npm run build
+	firebase deploy
+~~~
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
+- React
+- JavaScript
+- CSS
+- Firebase Hosting 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Author
+Evan Castner
