@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import "./App.css";
 import decodeMorse from './utils/decodeMorse';
 import morseMap from './utils/morseMap';
 
@@ -11,6 +12,7 @@ function App() {
 
     if (/[^.\-\s]/.test(inputValue)) {
       setWarning("Invalid characters detected");
+      return;
     }
     else {
       setWarning("");
@@ -27,110 +29,54 @@ function App() {
   }
 
     return (
-      <div style={{ fontFamily: "Arial, sans-serif", padding: "30px" }}>
-        <h1 style={{ textAlign: "center" }}>Morse Code Decoder</h1>
+      <div className='app-container'>
+        <div className='card'>
 
-        <div style={{
-            display: "flex",
-            gap: "40px",
-            alignItems: "flex-start",
-            marginTop: "30px"
-        }}>
+          <h1>Morse Code Decoder</h1>
+
+          <div className='layoout'> 
 
           {/* LEFT SIDE - DECODER */}
-          <div style={{ flex: 2 }}>
+          <div className='decoder'>
 
             <h2>Morse Input</h2>
 
-            <textarea
+            <textarea 
+              className='textarea'
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Paste Morse code here..."
-              style={{
-                width: "100%",
-                height: "140px",
-                padding: "10px",
-                fontSize: "16px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                resize: "none"
-              }}
             />
 
-            <div style={{
-              display: "flex",
-              gap: "10px",
-              marginTop: "10px"
-            }}>
-
+            <div className='button-group'>
               <button onClick={handleDecode}>Decode</button>
 
-              <button onClick={handleClear}>
-                Clear
-              </button>
+              <button onClick={handleClear}>Clear</button>
             </div>
 
-            {warning && (
-              <div style={{
-                marginTop: "10px",
-                padding: "10px",
-                background: "#ffe5e5",
-                color: "#b00020",
-                borderRadius: "5px"
-              }}>
-                ⚠ {warning}
-              </div>
-            )}
+            {warning && <div className="warning">{warning}</div>}
 
-            <h2 style={{ marginTop: "20px" }}>
-              Decoded Output
-            </h2>
+            <h2>Decoded Output</h2>
 
-            <textarea
-              value={outputValue}
-              readOnly
-              style={{
-                width: "100%",
-                height: "120px",
-                padding: "10px",
-                fontSize: "16px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                resize: "none"
-              }}
-            />
+            <textarea className='textarea'
+             value={outputValue} readOnly />
 
           </div>
 
           {/* RIGHT SIDE - MORSE MAP */}
-          <div style={{
-            flex: 1,
-            background: "#f5f5f5",
-            padding: "15px",
-            borderRadius: "6px",
-            maxHeight: "500px",
-            overflowY: "auto"
-          }}>
+          <div className='morse-map'>
 
             <h3>Morse Reference</h3>
 
             {Object.entries(morseMap).map(([code, letter]) => (
-              <div
-                key={code}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  padding: "4px 0",
-                  borderBottom: "1px solid #ddd"
-                }}
-              >
+              <div className='morse-row' key={code}>
                 <strong>{letter}</strong>
                 <span>{code}</span>
               </div>
             ))}
 
           </div>
-
+        </div>
         </div>
       </div>
     );    
