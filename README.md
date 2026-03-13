@@ -33,13 +33,13 @@ This will send you to google to login with an email
 	cd <project-folder>
 	firebase init
 ~~~
-Select HOSTING
-Choose the project
-Set the public directory
-   Dist (if using vite)
-   Or build (if using Create React App)
-Configure as a single page: YES
-DO NOT OVERWRITE index.html
+- Select HOSTING
+- Choose the project
+- Set the public directory
+   - Dist (if using vite)
+   - Or build (if using Create React App)
+- Configure as a single page: YES
+- DO NOT OVERWRITE index.html
 ~~~bash
 	npm run build
 	firebase deploy
