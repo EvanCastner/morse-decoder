@@ -5,12 +5,30 @@ import Controls from './components/Controls';
 
 function App() {
   const [inputValue, setInputValue] = useState("");
+  const [outputValue, setOutputValue] = useState("");
+
+  function handleDecode() {
+    const result = decodeMorse(inputValue);
+    setOutputValue(result);
+  }
+
+  function handleClear() {
+    setInputValue("");
+    setOutputValue("");
+  }
 
     return (
       <div>
         <h1>Morse Code Decoder</h1>
 
         <MorseInput value={inputValue} onChange={setInputValue} />
+
+        <Controls
+          onDecode={handleDecode}
+          onClear={handleClear}
+        />
+
+        <OutputDisplay value={outputValue}/>
 
       </div>
     );    
