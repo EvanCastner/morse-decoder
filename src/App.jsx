@@ -16,6 +16,10 @@ function App() {
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Type in Morse Code Values"
           />
+
+          <button onClick={() => console.log(inputValue)}>
+            Click to Decode
+          </button>
         </main>
       </div>
     );    
