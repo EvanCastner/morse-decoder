@@ -2,7 +2,6 @@ import { useState } from 'react';
 import MorseInput from './components/MorseInput';
 import OutputDisplay from './components/OutputDisplay';
 import Controls from './components/Controls';
-import morseMap from './utils/morseMap';
 
 function App() {
   const [inputValue, setInputValue] = useState("");

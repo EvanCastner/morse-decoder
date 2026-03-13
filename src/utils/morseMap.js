@@ -26,3 +26,5 @@ const morseMap = {
     "-.--": "Y",
     "--..": "Z"
 };
+
+export default morseMap;
